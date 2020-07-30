@@ -41,6 +41,36 @@ var AudioContext = require('web-audio-api').AudioContext
 context = new AudioContext
 var _ = require('underscore');
 
+const SpeechToTextV1 = require('ibm-watson/speech-to-text/v1');
+const { IamAuthenticator } = require('ibm-watson/auth');
+
+const speechToText = new SpeechToTextV1({
+  authenticator: new IamAuthenticator({
+    apikey: '{apikey}',
+  }),
+  url: '{url}',
+});
+
+const TextToSpeechV1 = require('ibm-watson/text-to-speech/v1');
+const { IamAuthenticator } = require('ibm-watson/auth');
+
+const textToSpeech = new TextToSpeechV1({
+  authenticator: new IamAuthenticator({
+    apikey: '{apikey}',
+  }),
+  url: '{url}',
+});
+
+const AssistantV2 = require('ibm-watson/assistant/v2');
+const { IamAuthenticator } = require('ibm-watson/auth');
+
+const assistant = new AssistantV2({
+  version: '{version}',
+  authenticator: new IamAuthenticator({
+    apikey: '{apikey}',
+  }),
+  url: '{url}',
+});
 
 
 /************************************************************************
